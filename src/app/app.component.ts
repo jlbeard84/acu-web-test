@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public hasLoaded = false;
 
   public categories: Category[] = [];
+  public selectedCategory: Category = null;
   public selectedLocations: AppLocation[] = [];
   public selectedSingleLocation: AppLocation = null;
 
@@ -52,6 +53,13 @@ export class AppComponent implements OnInit {
     this.selectedLocations = this.selectedLocations.sort((left, right) => {
       return left.name.localeCompare(right.name);
     });
+
+    for (let i = 0; i < this.categories.length; i++) {
+      if (this.categories[i].type === type) {
+        this.selectedCategory = this.categories[i];
+        break;
+      }
+    }
   }
 
   public handleLocationSelection(location: AppLocation) {

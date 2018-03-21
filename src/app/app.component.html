@@ -12,7 +12,7 @@
     </ons-col>
     <ons-col class="mid-col">
       <ons-list class="mid-col-list" *ngIf="selectedLocations && selectedLocations.length > 0">
-        <ons-list-header>Locations</ons-list-header>
+        <ons-list-header>Locations <span *ngIf="selectedCategory !== null">({{selectedCategory.name}})</span></ons-list-header>
         <ons-list-item 
           tappable 
           *ngFor="let selectedLocation of selectedLocations"
