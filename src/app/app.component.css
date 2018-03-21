@@ -1,0 +1,7 @@
+.left-col, .mid-col, .right-col {
+    width:32%;
+}
+
+.left-col-list, .mid-col-list {
+    border-right:1px solid #ccc;
+}
