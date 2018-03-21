@@ -5,3 +5,7 @@
 .left-col-list, .mid-col-list {
     border-right:1px solid #ccc;
 }
+
+.selected-row {
+    background-color: #D8F3F7;
+}

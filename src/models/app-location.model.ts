@@ -3,4 +3,5 @@ export class AppLocation {
     public name: string;
     public types: string[];
     public vicinity: string;
+    public isSelected: boolean;
 }

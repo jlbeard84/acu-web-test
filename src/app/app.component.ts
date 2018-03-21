@@ -39,13 +39,13 @@ export class AppComponent implements OnInit {
     });
   }
 
-  public handleCategory(type: string) {
+  public handleCategory(category: Category) {
 
     this.selectedLocations = [];
     this.selectedSingleLocation = null;
 
     for (let i = 0; i < this.locations.length; i++) {
-      if (this.locations[i].types.indexOf(type) > -1) {
+      if (this.locations[i].types.indexOf(category.type) > -1) {
         this.selectedLocations.push(this.locations[i]);
       }
     }
@@ -54,16 +54,31 @@ export class AppComponent implements OnInit {
       return left.name.localeCompare(right.name);
     });
 
+    this.selectedCategory = category;
+
     for (let i = 0; i < this.categories.length; i++) {
-      if (this.categories[i].type === type) {
-        this.selectedCategory = this.categories[i];
-        break;
+      if (this.categories[i].type === category.type) {
+        this.categories[i].isSelected = true;
+      } else {
+        this.categories[i].isSelected = false;
       }
+    }
+
+    for (let i = 0; i < this.locations.length; i++) {
+      this.locations[i].isSelected = false;
     }
   }
 
   public handleLocationSelection(location: AppLocation) {
     this.selectedSingleLocation = location;
+
+    for (let i = 0; i < this.locations.length; i++) {
+      if (this.locations[i] === location) {
+        this.locations[i].isSelected = true;
+      } else {
+        this.locations[i].isSelected = false;
+      }
+    }
   }
 
   private extractCategories(): void {

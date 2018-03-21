@@ -6,7 +6,8 @@
         <ons-list-item 
           tappable 
           *ngFor="let category of categories" 
-          (click)="handleCategory(category.type)">{{category.name}}
+          [ngClass]="{'selected-row': category.isSelected}"
+          (click)="handleCategory(category)">{{category.name}}
         </ons-list-item>
       </ons-list>
     </ons-col>
@@ -16,6 +17,7 @@
         <ons-list-item 
           tappable 
           *ngFor="let selectedLocation of selectedLocations"
+          [ngClass]="{'selected-row': selectedLocation.isSelected}"
           (click)="handleLocationSelection(selectedLocation)">{{selectedLocation.name}}
         </ons-list-item>
       </ons-list>
